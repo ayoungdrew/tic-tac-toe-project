@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,7 +12,45 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <h1>Tic Tac Toe</h1>
+      <div id="live-area">
+        <div class="game-board">
+        <div id="first" class="game-field">field-1</div>
+        <div id="second" class="game-field">field-2</div>
+        <div id="third" class="game-field">field-3</div>
+        <div id="fourth" class="game-field">field-4</div>
+        <div id="fifth" class="game-field">field-5</div>
+        <div id="sixth" class="game-field">field-6</div>
+        <div id="seventh" class="game-field">field-7-</div>
+        <div id="eight" class="game-field">field-8</div>
+        <div id="nineth" class="game-field">field-9</div>
+      </div>
+      <div style="clear: left;">
+        <div class="row">
+          <div class="col-md-3" style="background-color: blue">heyy</div>
+            <div class="col-md-3" style="background-color: blue">hey</div>
+        </div>
+      <form id="sign-in" class="border">
+        <fieldset>
+          <legend>Sign in</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="submit" value="Sign in and play!">
+        </fieldset>
+      </form>
+      <form id="sign-up" class="border">
+        <fieldset>
+          <legend>Not registered? Sign up!</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <input type="submit" value="Sign up!">
+        </fieldset>
+      </form>
+      </div>
+    </div>
+
+      <!-- <h1>Example</h1>
 
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
       eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -20,6 +58,7 @@
       ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      est laborum.</p> -->
     </body>
+
 </html>
