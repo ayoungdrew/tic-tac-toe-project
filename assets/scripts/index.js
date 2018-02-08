@@ -18,3 +18,5 @@ $(() => {
     console.log('hey!')
   })
 })
+
+let test = []
