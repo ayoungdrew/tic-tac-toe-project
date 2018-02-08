@@ -14,13 +14,10 @@ $(() => {
 //   })
 // })
 
-let gameBoard = [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined]
+const gameBoard = [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined]
 const xPicks = []
 const oPicks = []
 let currentTurn = 'x'
-
-$('#first').text(gameBoard[0])
-$('#second').text(gameBoard[1])
 
 const fieldPickLogic = function (fieldId, index) {
   if (currentTurn === 'x' && gameBoard[index] === undefined) {
@@ -64,19 +61,3 @@ $('#ninth').on('click', function () { fieldPickLogic('#ninth', 8) })
 //   console.log('Nice pick! Whose turn it is: ', currentTurn)
 // }
 // )
-
-$('#second').on('click', function () {
-  if (currentTurn === 'x' && gameBoard[1] === undefined) {
-    gameBoard[1] = 'x'
-    $(this).text('x')
-    currentTurn = 'o'
-  } else if (currentTurn === 'o' && gameBoard[1] === undefined) {
-    gameBoard[1] = 'o'
-    $(this).text('o')
-    currentTurn = 'x'
-  } else if (gameBoard[1] !== undefined) {
-    console.log('pick another box plz!')
-  }
-  console.log('Whose turn it is: ', currentTurn)
-}
-)
