@@ -19,18 +19,6 @@ const xPicks = []
 const oPicks = []
 let currentTurn = 'x'
 
-const getScore = function () {
-  for (let i = 0; i < gameBoard.length; i++) {
-    if (gameBoard[i] === 'x') {
-      xPicks.push(i)
-    } else if (gameBoard[i] === 'o') {
-      oPicks.push(i)
-    } else {
-      console.log('game score is...')
-    }
-  }
-}
-
 $('#first').text(gameBoard[0])
 $('#second').text(gameBoard[1])
 
@@ -92,14 +80,3 @@ $('#second').on('click', function () {
   console.log('Whose turn it is: ', currentTurn)
 }
 )
-
-//   ```
-// first-click: if it's x's turn and value === undefined, text = x
-//
-// ```
-
-// $(() => {
-//   $('.game-field').on('click', function () {
-//     $(this).text('xfs')
-//   })
-// })

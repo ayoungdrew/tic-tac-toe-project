@@ -5,6 +5,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 body {
   color: red;
   font-family: 'Slabo 27px', serif;
+  font-size: 60;
   margin: 0 auto;
   max-width: 900px;
 }
@@ -22,6 +23,7 @@ body {
 
 .game-field {
   background-color: yellow;
+  font-size: 60;
   border: 1px solid;
   float: left;
   width: 200px;
