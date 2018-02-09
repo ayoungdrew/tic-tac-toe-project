@@ -92,20 +92,24 @@ const getAllGamesSuccess = function (data) {
     'background-color': 'green'
   })
   store.games = data.games
-  console.log(data)
-  console.log(store.games)
+  // console.log(store)
+  console.log('All games you\'ve played:', store.games)
   const gamesOver = []
   for (let i = 0; i < store.games.length; i++) {
     if (store.games[i].over === true) {
       gamesOver.push(store.games[i])
     }
   }
+  const xWins = []
+  console.log('Games you\'ve completed:', gamesOver)
   // console.log('Finished ', gamesOver.length, 'games')
-  // for (let i = 0; i < gamesOver.length; i++) {
-  //   logic.compare(gamesOver[i], )
-  // console.log(gamesOver[i])
-  // }
-  console.log(gamesOver)
+  for (let i = 0; i < gamesOver.length; i++) {
+    for (let j = 0; j < logic.win.length; j++) {
+      logic.checkWinRedux(gamesOver[i].cells, logic.win[j], xWins)
+      // xWins.push(gamesOver[i])
+    }
+  }
+  console.log('You\'ve won ', xWins.length, ' games out of', gamesOver.length)
 }
 
 const getAllGamesFailure = function (error) {

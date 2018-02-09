@@ -19,12 +19,17 @@ const compare = function (playerPoints, winArray) {
   return resultArr.length === 3
 }
 
-const checkWinRedux = function (boardCells, winArray) {
-  if (boardCells[winArray[0]] === 'x' && boardCells[winArray[1]] === 'x' &&
-  boardCells[winArray[2]] === 'x') {
-    console.log('x-win')
+// const gameEnd = ['x', '', '', 'o', 'x', 'o', 'x', 'o', 'x']
+//
+// const winExample = [0, 4, 8]
+
+const checkWinRedux = function (board, win, xwins) {
+  if (board[win[0]] === 'x' && board[win[1]] === 'x' &&
+  board[win[2]] === 'x') {
+    // console.log('x wins')
+    xwins.push(true)
   } else {
-    console.log('nope')
+    // console.log('nope')
   }
 }
 
@@ -72,16 +77,8 @@ const fieldPickLogic = function (fieldId, index) {
   // api.updateGame(store)
 }
 
-// $('#first').on('click', function () { fieldPickLogic('#first', 0) })
-// $('#second').on('click', function () { fieldPickLogic('#second', 1) })
-// $('#third').on('click', function () { fieldPickLogic('#third', 2) })
-// $('#fourth').on('click', function () { fieldPickLogic('#fourth', 3) })
-// $('#fifth').on('click', function () { fieldPickLogic('#fifth', 4) })
-// $('#sixth').on('click', function () { fieldPickLogic('#sixth', 5) })
-// $('#seventh').on('click', function () { fieldPickLogic('#seventh', 6) })
-// $('#eighth').on('click', function () { fieldPickLogic('#eighth', 7) })
-// $('#ninth').on('click', function () { fieldPickLogic('#ninth', 8) })
-
 module.exports = {
-  fieldPickLogic
+  fieldPickLogic,
+  win,
+  checkWinRedux
 }
