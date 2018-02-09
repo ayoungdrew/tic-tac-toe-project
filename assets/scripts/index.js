@@ -6,37 +6,60 @@ const authEvent = require('./events')
 
 $(() => {
   setAPIOrigin(location, config)
-  console.log('Welcome! Whose turn it is: ', currentTurn)
-})
-
-$(() => {
   authEvent.addHandlers()
+  // $(document).on('click', function () {
+  //   console.log('hey!')
+  // })
 })
-// $(() => {
-//   $(document).on('click', function () {
-//     console.log('hey!')
-//   })
-// })
 
 const gameBoard = [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined]
-const xPicks = []
-const oPicks = []
+const win = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+const picks = [[], []]
 let currentTurn = 'x'
+
+const compare = function (playerPoints, winArray) {
+  const resultArr = []
+
+  for (let i = 0; i < playerPoints.length; i++) {
+    for (let j = 0; j < winArray.length; j++) {
+      if (playerPoints[i] === winArray[j]) {
+        resultArr.push(playerPoints[i])
+      }
+    }
+  }
+  return resultArr.length === 3
+}
+
+const checkWin = function () {
+  if (compare(picks[0], win[0]) === true || compare(picks[0], win[1]) === true ||
+compare(picks[0], win[2]) === true || compare(picks[0], win[3]) === true ||
+compare(picks[0], win[4]) === true || compare(picks[0], win[5]) === true ||
+compare(picks[0], win[6]) === true || compare(picks[0], win[7]) === true) {
+    alert('X wins!')
+  } else if (compare(picks[1], win[0]) === true || compare(picks[1], win[1]) === true ||
+compare(picks[1], win[2]) === true || compare(picks[1], win[3]) === true ||
+compare(picks[1], win[4]) === true || compare(picks[1], win[5]) === true ||
+compare(picks[1], win[6]) === true || compare(picks[1], win[7]) === true) {
+    alert('O wins!')
+  }
+}
 
 const fieldPickLogic = function (fieldId, index) {
   if (currentTurn === 'x' && gameBoard[index] === undefined) {
+    picks[0].push(index)
     gameBoard[index] = 'x'
     $(fieldId).text('x')
     currentTurn = 'o'
   } else if (currentTurn === 'o' && gameBoard[index] === undefined) {
+    picks[1].push(index)
     gameBoard[index] = 'o'
     $(fieldId).text('o')
     currentTurn = 'x'
   } else if (gameBoard[index] !== undefined) {
-    console.log('Pick another box plz!')
+    alert('Pick another box plz!')
   }
-  console.log('This field is now:', $(fieldId).text())
-  console.log('Thanks for the click! Whose turn it is now: ', currentTurn)
+  checkWin()
+  console.log('X\'s picks: ', picks[0], 'O\'s picks: ', picks[1], 'Whose turn it is now: ', currentTurn)
 }
 
 $('#first').on('click', function () { fieldPickLogic('#first', 0) })
@@ -48,20 +71,3 @@ $('#sixth').on('click', function () { fieldPickLogic('#sixth', 5) })
 $('#seventh').on('click', function () { fieldPickLogic('#seventh', 6) })
 $('#eighth').on('click', function () { fieldPickLogic('#eighth', 7) })
 $('#ninth').on('click', function () { fieldPickLogic('#ninth', 8) })
-
-// $('#first').on('click', function () {
-//   if (currentTurn === 'x' && gameBoard[0] === undefined) {
-//     gameBoard[0] = 'x'
-//     $(this).text('x')
-//     currentTurn = 'o'
-//   } else if (currentTurn === 'o' && gameBoard[0] === undefined) {
-//     gameBoard[0] = 'o'
-//     $(this).text('o')
-//     currentTurn = 'x'
-//   } else if (gameBoard[0] !== undefined) {
-//     console.log('pick another box plz!')
-//   }
-//   console.log('This field is now:', $(this).text())
-//   console.log('Nice pick! Whose turn it is: ', currentTurn)
-// }
-// )

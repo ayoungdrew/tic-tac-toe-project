@@ -1,20 +1,12 @@
-let boardArray = [1,2,3,4,5,6,7,8,9]
+const picks = [[4, 3, 2, 5], [0, 1, 6]]
+const win = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
 
-[1,2,3]
-[4,5,6]
-[7,8,9]
-[1,4,7]
-[2,5,8]
-[3,6,9]
-[1,5,9]
-[3,5,7]
-
-const arrContIncluded = function (playerPoints, arrayB) {
+const compare = function (playerPoints, winArray) {
   const resultArr = []
 
   for (let i = 0; i < playerPoints.length; i++) {
-    for (let j = 0; j < arrayB.length; j++) {
-      if (playerPoints[i] === arrayB[j]) {
+    for (let j = 0; j < winArray.length; j++) {
+      if (playerPoints[i] === winArray[j]) {
         resultArr.push(playerPoints[i])
       }
     }
@@ -22,11 +14,19 @@ const arrContIncluded = function (playerPoints, arrayB) {
   return resultArr.length === 3
 }
 
-
-
-
-
-
+let checkWin = function () {
+  if (compare(picks[0], win[0]) === true || compare(picks[0], win[1]) === true ||
+compare(picks[0], win[2]) === true || compare(picks[0], win[3]) === true ||
+compare(picks[0], win[4]) === true || compare(picks[0], win[5]) === true ||
+compare(picks[0], win[6]) === true || compare(picks[0], win[7]) === true) {
+    console.log('X wins!')
+  } else if (compare(picks[1], win[0]) === true || compare(picks[1], win[1]) === true ||
+compare(picks[1], win[2]) === true || compare(picks[1], win[3]) === true ||
+compare(picks[1], win[4]) === true || compare(picks[1], win[5]) === true ||
+compare(picks[1], win[6]) === true || compare(picks[1], win[7]) === true) {
+    console.log('O wins!')
+  }
+}
 
 
 
