@@ -34,6 +34,18 @@ const changePassword = function (data) { // this is the POST verb
   })
 }
 
+const createGame = function (data) { // this is the POST verb
+  return $.ajax({
+    url: 'http://tic-tac-toe.wdibos.com/games/',
+    method: 'POST',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 const signOut = function (data) { // this is the POST verb
   return $.ajax({
     url: 'http://tic-tac-toe.wdibos.com/sign-out/' + store.user.id,
@@ -50,5 +62,6 @@ module.exports = {
   signUp,
   signIn,
   signOut,
-  changePassword
+  changePassword,
+  createGame
 }

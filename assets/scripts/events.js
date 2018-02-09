@@ -2,25 +2,8 @@
 const api = require('./api')
 const getFormFields = require('../../lib/get-form-fields')
 const store = require('./store')
+const ui = require('./ui')
 // const ui = require('./ui')
-
-const signUpSuccess = function (data) {
-  $('#message').text('Signed up succesfully')
-  $('#message').css({
-    'color': 'white',
-    'background-color': 'green'
-  })
-  console.log(data)
-}
-
-const signUpFailure = function (error) {
-  $('#message').text('Sign up failure')
-  $('#message').css({
-    'color': 'white',
-    'background-color': 'red'
-  })
-  console.error(error)
-}
 
 const signInSuccess = function (data) {
   $('#message').text('Signed in succesfully')
@@ -61,6 +44,24 @@ const changePasswordFailure = function (error) {
   console.error(error)
 }
 
+const createGameSuccess = function (data) {
+  $('#message').text('Created game! Nice!')
+  $('#message').css({
+    'color': 'white',
+    'background-color': 'green'
+  })
+  console.log(data)
+}
+
+const createGameFailure = function (error) {
+  $('#message').text('Create game failure ):')
+  $('#message').css({
+    'color': 'white',
+    'background-color': 'red'
+  })
+  console.error(error)
+}
+
 const signOutSuccess = function (data) {
   $('#message').text('Signed out succesfully')
   $('#message').css({
@@ -88,8 +89,8 @@ const addHandlers = () => {
     console.log('hello sign me up???')
     console.log(data)
     api.signUp(data)
-      .then(signUpSuccess)
-      .catch(signUpFailure)
+      .then(ui.signUpSuccess)
+      .catch(ui.signUpFailure)
   })
   $('#sign-in').on('submit', function (event) {
     event.preventDefault()
@@ -107,6 +108,14 @@ const addHandlers = () => {
     api.changePassword(data)
       .then(changePasswordSuccess)
       .catch(changePasswordFailure)
+  })
+  $('#create-game').on('submit', function (event) {
+    event.preventDefault()
+    const data = getFormFields(this)
+    console.log('I wanna make a game')
+    api.createGame(data)
+      .then(createGameSuccess)
+      .catch(createGameFailure)
   })
   $('#sign-out').on('submit', function (event) {
     event.preventDefault()
