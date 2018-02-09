@@ -1,55 +1,49 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Tic Tac Toe</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <title>Tic Tac Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-      <link href="https://fonts.googleapis.com/css?family=Slabo+13px|Slabo+27px" rel="stylesheet">
-
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <h1>Tic Tac Toe</h1>
-      <h1>This is from the api branch</h1>
-      <div id="live-area">
-        <div class="game-board">
-        <div id="first" class="game-field"></div>
-        <div id="second" class="game-field"></div>
-        <div id="third" class="game-field"></div>
-        <div id="fourth" class="game-field"></div>
-        <div id="fifth" class="game-field"></div>
-        <div id="sixth" class="game-field"></div>
-        <div id="seventh" class="game-field"></div>
-        <div id="eighth" class="game-field"></div>
-        <div id="ninth" class="game-field"></div>
-      </div>
-      <div style="clear: left;">
-        <div class="row">
-          <div class="col-md-3" style="background-color: blue">heyy</div>
-            <div class="col-md-3" style="background-color: blue">hey</div>
-        </div>
-      <form id="sign-in" class="border">
-        <fieldset>
-          <legend>Sign in</legend>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="submit" value="Sign in and play!">
-        </fieldset>
-      </form>
-      <form id="sign-up" class="border">
-        <fieldset>
-          <legend>Not registered? Sign up!</legend>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-          <input type="submit" value="Sign up!">
-        </fieldset>
-      </form>
-      <form id="change-password" class="border">
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Slabo+13px|Slabo+27px" rel="stylesheet">
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+<body class="container-fluid">
+  <h1>Tic Tac Toe</h1>
+  <div id="live-area">
+    <div id="game-board">
+      <div id="first" class="game-field"></div>
+      <div id="second" class="game-field"></div>
+      <div id="third" class="game-field"></div>
+      <div id="fourth" class="game-field"></div>
+      <div id="fifth" class="game-field"></div>
+      <div id="sixth" class="game-field"></div>
+      <div id="seventh" class="game-field"></div>
+      <div id="eighth" class="game-field"></div>
+      <div id="ninth" class="game-field"></div>
+    </div>
+    <div id="control-panel" style="clear: left;">
+    <form id="sign-in" class="border">
+      <fieldset>
+        <legend>Sign in</legend>
+        <input type="text" name="credentials[email]" placeholder="Email">
+        <input type="password" name="credentials[password]" placeholder="Password">
+        <input type="submit" value="Sign in and play!">
+      </fieldset>
+    </form>
+    <form id="sign-up" class="border">
+      <fieldset>
+        <legend>Not registered? Sign up!</legend>
+        <input type="text" name="credentials[email]" placeholder="Email">
+        <input type="password" name="credentials[password]" placeholder="Password">
+        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+        <input type="submit" value="Sign up!">
+      </fieldset>
+    </form>
+    <form id="change-password" class="border">
       <fieldset>
         <legend>Change Password!</legend>
         <input type="password" name="passwords[old]" placeholder="Old Password">
@@ -63,25 +57,25 @@
         <input type="submit" value="Make a game!">
       </fieldset>
     </form>
-      <form id="sign-out" class="border">
-        <fieldset>
-          <legend>I'm done! Let's GTFO!</legend>
-          <input type="submit" value="Sign out!">
-        </fieldset>
-      </form>
-      <div class="col-sm-6" id="message">test</div>
-    </div>
-    </div>
+    <form id="sign-out" class="border">
+      <fieldset>
+        <legend>I'm done! Let's GTFO!</legend>
+        <input type="submit" value="Sign out!">
+      </fieldset>
+    </form>
+    <div class="col-sm-6" id="message">test</div>
+  </div>
+</div>
 
-      <!-- <h1>Example</h1>
+<!-- <h1>Example</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p> -->
-    </body>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+est laborum.</p> -->
+</body>
 
 </html>

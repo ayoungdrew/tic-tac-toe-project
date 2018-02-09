@@ -15,12 +15,6 @@ body {
   margin: auto;
 } */
 
-.game-board {
-  width: 80%;
-  min-width: 606px;
-  margin: 0 auto;
-}
-
 .game-field {
   background-color: yellow;
   font-size: 60;
@@ -30,14 +24,20 @@ body {
   height: 150px;
 }
 
-/* #first {
+.hidden {
+  display: none;
 }
 
-#second {
+.unhidden {
+  display: block;
 }
 
-#third {
-} */
+#game-board {
+  display: none;
+  margin: 0 auto;
+  min-width: 606px;
+  width: 80%;
+}
 
 #fourth {
   clear: left;
@@ -45,4 +45,16 @@ body {
 
 #seventh {
   clear: left;
+}
+
+#change-password {
+  display: none;
+}
+
+#create-game {
+  display: none;
+}
+
+#sign-out {
+  display: none;
 }

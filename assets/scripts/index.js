@@ -3,6 +3,7 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const authEvent = require('./events')
+const store = require('./store')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -58,8 +59,10 @@ const fieldPickLogic = function (fieldId, index) {
   } else if (gameBoard[index] !== undefined) {
     alert('Pick another box plz!')
   }
+  store.game.cells = gameBoard
   checkWin()
-  console.log('X\'s picks: ', picks[0], 'O\'s picks: ', picks[1], 'Whose turn it is now: ', currentTurn)
+  // console.log('X\'s picks: ', picks[0], 'O\'s picks: ', picks[1], 'Whose turn it is now: ', currentTurn)
+  console.log(store.game.cells)
 }
 
 $('#first').on('click', function () { fieldPickLogic('#first', 0) })
