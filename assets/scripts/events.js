@@ -25,6 +25,23 @@ const addHandlers = () => {
       .then(ui.signInSuccess)
       .catch(ui.signInFailure)
   })
+
+  $('#create-game').on('submit', function (event) {
+    event.preventDefault()
+    console.log('Making a new game...')
+    api.createGame()
+      .then(ui.createGameSuccess)
+      .catch(ui.createGameFailure)
+  })
+
+  $('#get-all-games').on('submit', function (event) {
+    event.preventDefault()
+    console.log('My game history plzzzzzz')
+    api.getAllGames()
+      .then(ui.getAllGamesSuccess)
+      .catch(ui.getAllGamesFailure)
+  })
+
   $('#change-password').on('submit', function (event) {
     event.preventDefault()
     const data = getFormFields(this)
@@ -33,19 +50,10 @@ const addHandlers = () => {
       .then(ui.changePasswordSuccess)
       .catch(ui.changePasswordFailure)
   })
-  $('#create-game').on('submit', function (event) {
-    event.preventDefault()
-    const data = getFormFields(this)
-    console.log('I wanna make a game')
-    api.createGame(data)
-      .then(ui.createGameSuccess)
-      .catch(ui.createGameFailure)
-  })
   $('#sign-out').on('submit', function (event) {
     event.preventDefault()
-    const data = getFormFields(this)
     console.log('I want to sign out plz')
-    api.signOut(data)
+    api.signOut()
       .then(ui.signOutSuccess)
       .catch(ui.signOutFailure)
   })

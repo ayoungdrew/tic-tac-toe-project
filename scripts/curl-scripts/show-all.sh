@@ -3,7 +3,7 @@
 
 # sh scripts/json/sign-up.sh
 
-curl "http://tic-tac-toe.wdibos.com/games/${ID}" \
+curl "http://tic-tac-toe.wdibos.com/games" \
   --include \
   --request GET \
   --header "Content-Type: application/json" \

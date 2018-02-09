@@ -13,13 +13,13 @@ curl "http://tic-tac-toe.wdibos.com/sign-in" \
 
 echo
 
-# curl "http://tic-tac-toe.wdibos.com/sign-in" \
-#   --include \
-#   --request POST \
-#   --header "Content-Type: application/json" \
-#   --data '{
-#     "credentials": {
-#       "email": "andrewyoung504@gmail.com",
-#       "password": "wdi",
-#     }
-#   }'
+curl "http://tic-tac-toe.wdibos.com/sign-in" \
+  --include \
+  --request POST \
+  --header "Content-Type: application/json" \
+  --data '{
+    "credentials": {
+      "email": "'"a@bb.com"'",
+      "password": "'"ccc"'"
+    }
+  }'

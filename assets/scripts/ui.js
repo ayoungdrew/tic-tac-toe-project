@@ -1,4 +1,5 @@
 const store = require('./store')
+const logic = require('./logic')
 
 const signUpSuccess = function (data) {
   $('#message').text('Signed up succesfully')
@@ -24,7 +25,7 @@ const signInSuccess = function (data) {
     'color': 'white',
     'background-color': 'green'
   })
-  $('#game-board, #change-password, #create-game, #sign-out').css({
+  $('#game-board, #change-password, #create-game, #get-all-games, #sign-out').css({
     'display': 'block'
   })
   $('#sign-in, #sign-up').css({
@@ -72,6 +73,7 @@ const createGameSuccess = function (data) {
   store.game = data.game
   console.log(data)
   console.log(store.game)
+  console.log('Game ID is', store.game.id)
 }
 
 const createGameFailure = function (error) {
@@ -80,6 +82,39 @@ const createGameFailure = function (error) {
     'color': 'white',
     'background-color': 'red'
   })
+  console.error(error)
+}
+
+const getAllGamesSuccess = function (data) {
+  $('#message').text('Retrieved game history!')
+  $('#message').css({
+    'color': 'white',
+    'background-color': 'green'
+  })
+  store.games = data.games
+  console.log(data)
+  console.log(store.games)
+  const gamesOver = []
+  for (let i = 0; i < store.games.length; i++) {
+    if (store.games[i].over === true) {
+      gamesOver.push(store.games[i])
+    }
+  }
+  // console.log('Finished ', gamesOver.length, 'games')
+  // for (let i = 0; i < gamesOver.length; i++) {
+  //   logic.compare(gamesOver[i], )
+  // console.log(gamesOver[i])
+  // }
+  console.log(gamesOver)
+}
+
+const getAllGamesFailure = function (error) {
+  $('#message').text('Get all games failure ):')
+  $('#message').css({
+    'color': 'white',
+    'background-color': 'red'
+  })
+  console.log('errrrrror')
   console.error(error)
 }
 
@@ -117,6 +152,8 @@ module.exports = {
   changePasswordFailure,
   createGameSuccess,
   createGameFailure,
+  getAllGamesSuccess,
+  getAllGamesFailure,
   signOutSuccess,
   signOutFailure
 }

@@ -22,22 +22,72 @@ const signIn = function (data) { // this is the POST verb
   })
 }
 
-const changePassword = function (data) { // this is the POST verb
+const createGame = function () { // this is the POST verb
   return $.ajax({
-    url: 'http://tic-tac-toe.wdibos.com/change-password/' + store.user.id,
+    url: 'http://tic-tac-toe.wdibos.com/games/',
+    method: 'POST',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateGameCell = function (cellIndex, playerAvatar) {
+  return $.ajax({
+    url: 'http://tic-tac-toe.wdibos.com/games/' + store.game.id,
     method: 'PATCH',
     headers: {
       contentType: 'application/json',
       Authorization: 'Token token=' + store.user.token
     },
-    data
+    data: {
+      game: {
+        cell: {
+          index: cellIndex,
+          value: playerAvatar
+        }
+      }
+    }
   })
 }
 
-const createGame = function (data) { // this is the POST verb
+const updateGameOver = function () {
+  return $.ajax({
+    url: 'http://tic-tac-toe.wdibos.com/games/' + store.game.id,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      game: {
+        over: true
+      }
+    }
+  })
+}
+
+const getAllGames = function () {
   return $.ajax({
     url: 'http://tic-tac-toe.wdibos.com/games/',
-    method: 'POST',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      game: {
+        over: true
+      }
+    }
+  })
+}
+
+const changePassword = function (data) { // this is the POST verb
+  return $.ajax({
+    url: 'http://tic-tac-toe.wdibos.com/change-password/' + store.user.id,
+    method: 'PATCH',
     headers: {
       contentType: 'application/json',
       Authorization: 'Token token=' + store.user.token
@@ -62,6 +112,9 @@ module.exports = {
   signUp,
   signIn,
   signOut,
+  createGame,
+  getAllGames,
   changePassword,
-  createGame
+  updateGameOver,
+  updateGameCell
 }
