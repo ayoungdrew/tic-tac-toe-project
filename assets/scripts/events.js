@@ -34,9 +34,17 @@ const addHandlers = () => {
       .catch(ui.createGameFailure)
   })
 
+  // $('#restart-game').on('submit', function (event) {
+  //   event.preventDefault()
+  //   console.log('Restarting game...')
+  //   api.createGame()
+  //     .then(ui.restartGameSuccess)
+  //     .catch(ui.restartGameFailure)
+  // })
+
   $('#get-all-games').on('submit', function (event) {
     event.preventDefault()
-    console.log('My game history plzzzzzz')
+    // console.log('My game history plzzzzzz')
     api.getAllGames()
       .then(ui.getAllGamesSuccess)
       .catch(ui.getAllGamesFailure)

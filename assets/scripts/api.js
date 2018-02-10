@@ -75,11 +75,17 @@ const getAllGames = function () {
     headers: {
       contentType: 'application/json',
       Authorization: 'Token token=' + store.user.token
-    },
-    data: {
-      game: {
-        over: true
-      }
+    }
+  })
+}
+
+const getGame = function () {
+  return $.ajax({
+    url: 'http://tic-tac-toe.wdibos.com/games/' + store.game.id,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
     }
   })
 }
@@ -114,6 +120,7 @@ module.exports = {
   signOut,
   createGame,
   getAllGames,
+  getGame,
   changePassword,
   updateGameOver,
   updateGameCell

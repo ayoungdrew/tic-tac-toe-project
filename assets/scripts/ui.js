@@ -25,14 +25,14 @@ const signInSuccess = function (data) {
     'color': 'white',
     'background-color': 'green'
   })
-  $('#game-board, #change-password, #create-game, #get-all-games, #sign-out').css({
+  $('#change-password, #create-game, #get-all-games, #sign-out').css({
     'display': 'block'
   })
   $('#sign-in, #sign-up').css({
     'display': 'none'
   })
   store.user = data.user
-  console.log(data)
+  console.log('AJAX data returned:', data)
   console.log(store.user)
 }
 
@@ -70,6 +70,9 @@ const createGameSuccess = function (data) {
     'color': 'white',
     'background-color': 'green'
   })
+  $('#game-board').css({
+    'display': 'block'
+  })
   store.game = data.game
   console.log(data)
   console.log(store.game)
@@ -85,19 +88,19 @@ const createGameFailure = function (error) {
   console.error(error)
 }
 
+// Retrieve logged in player's game history, statistics, etc.
 const getAllGamesSuccess = function (data) {
   $('#message').text('Retrieved game history!')
   $('#message').css({
     'color': 'white',
     'background-color': 'green'
   })
-  store.games = data.games
-  // console.log(store)
-  console.log('All games you\'ve played:', store.games)
+  console.log('AJAX request returned:', data)
+  console.log('All games you\'ve played:', data.games)
   const gamesOver = []
-  for (let i = 0; i < store.games.length; i++) {
-    if (store.games[i].over === true) {
-      gamesOver.push(store.games[i])
+  for (let i = 0; i < data.games.length; i++) {
+    if (data.games[i].over === true) {
+      gamesOver.push(data.games[i])
     }
   }
   const xWins = []
