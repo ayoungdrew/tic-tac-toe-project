@@ -88,6 +88,18 @@ const createGameFailure = function (error) {
   console.error(error)
 }
 
+const restartGameSuccess = function (data) {
+  $('#message').text('Started a new game!')
+  $('#message').css({
+    'color': 'white',
+    'background-color': 'green'
+  })
+  store.game = data.game
+  console.log(data)
+  console.log(store.game)
+  console.log('New game ID is', store.game.id)
+}
+
 // Retrieve logged in player's game history, statistics, etc.
 const getAllGamesSuccess = function (data) {
   $('#message').text('Retrieved game history!')
@@ -159,6 +171,7 @@ module.exports = {
   changePasswordFailure,
   createGameSuccess,
   createGameFailure,
+  restartGameSuccess,
   getAllGamesSuccess,
   getAllGamesFailure,
   signOutSuccess,

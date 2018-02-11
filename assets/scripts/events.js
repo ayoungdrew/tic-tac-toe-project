@@ -3,7 +3,7 @@ const api = require('./api')
 const getFormFields = require('../../lib/get-form-fields')
 const ui = require('./ui')
 const logic = require('./logic')
-
+const store = require('./store')
 // EVENT HANDLERSSS!
 const addHandlers = () => {
   // Control panel/user stuff; scroll down for gameplay handlers
@@ -34,13 +34,16 @@ const addHandlers = () => {
       .catch(ui.createGameFailure)
   })
 
-  // $('#restart-game').on('submit', function (event) {
-  //   event.preventDefault()
-  //   console.log('Restarting game...')
-  //   api.createGame()
-  //     .then(ui.restartGameSuccess)
-  //     .catch(ui.restartGameFailure)
-  // })
+  $('#restart-game').on('submit', function (event) {
+    event.preventDefault()
+    $('.game-field').text('')
+    store.game.over = false
+    store.game.cells = ['', '', '', '', '', '', '', '', '']
+    console.log('Restarting game...')
+    api.createGame()
+      .then(ui.restartGameSuccess)
+      .catch(ui.createGameFailure)
+  })
 
   $('#get-all-games').on('submit', function (event) {
     event.preventDefault()
@@ -65,6 +68,7 @@ const addHandlers = () => {
       .then(ui.signOutSuccess)
       .catch(ui.signOutFailure)
   })
+
   // Game board handlers
   $('#first').on('click', function () { logic.fieldPickLogic('#first', 0) })
   $('#second').on('click', function () { logic.fieldPickLogic('#second', 1) })
