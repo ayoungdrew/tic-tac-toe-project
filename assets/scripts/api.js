@@ -35,7 +35,7 @@ const createGame = function () { // this is the POST verb
 
 const updateGameCell = function (cellIndex, playerAvatar) {
   return $.ajax({
-    url: 'http://tic-tac-toe.wdibos.com/games/' + store.game.id,
+    url: `http://tic-tac-toe.wdibos.com/games/${store.game.id}`,
     method: 'PATCH',
     headers: {
       contentType: 'application/json',

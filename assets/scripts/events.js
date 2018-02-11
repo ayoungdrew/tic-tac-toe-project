@@ -37,12 +37,12 @@ const addHandlers = () => {
   $('#restart-game').on('submit', function (event) {
     event.preventDefault()
     $('.game-field').text('')
-    store.game.over = false
-    store.game.cells = ['', '', '', '', '', '', '', '', '']
     console.log('Restarting game...')
     api.createGame()
       .then(ui.restartGameSuccess)
       .catch(ui.createGameFailure)
+    logic.gameBoardReset()
+    console.log(store.game)
   })
 
   $('#get-all-games').on('submit', function (event) {
