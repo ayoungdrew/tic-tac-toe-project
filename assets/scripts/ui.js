@@ -1,34 +1,33 @@
 const store = require('./store')
 const logic = require('./logic')
 
-const signUpSuccess = function (data) {
-  $('#message').text('Signed up succesfully')
-  $('#message').css({
-    'color': 'white',
-    'background-color': 'green'
+const signUpStart = function (data) {
+  $('#signUpForms, #signUpSubmit').css({
+    'display': 'block'
   })
+  // $('#signUpModal').modal('toggle')
+  console.log(data)
+}
+
+const signUpSuccess = function (data) {
+  $('#signUpModalMessage').html('Signed up succesfully').addClass('successMessage')
+  $('#signUpForms, #signUpSubmit').css({
+    'display': 'none'
+  })
+  // $('#signUpModal').modal('toggle')
   console.log(data)
 }
 
 const signUpFailure = function (error) {
-  $('#message').text('Sign up failure')
-  $('#message').css({
-    'color': 'white',
-    'background-color': 'red'
-  })
+  $('#signUpModalMessage').html('Sign up failure. Try again plz').addClass('failureMessage')
   console.error(error)
 }
 
 const signInSuccess = function (data) {
-  $('#message').text('Signed in succesfully')
-  $('#message').css({
-    'color': 'white',
-    'background-color': 'green'
-  })
   $('#change-password, #create-game, #get-all-games, #sign-out').css({
     'display': 'block'
   })
-  $('#sign-in, #sign-up').css({
+  $('#sign-in, #sign-up, #signUpButton').css({
     'display': 'none'
   })
   store.user = data.user
@@ -163,6 +162,7 @@ const signOutFailure = function (error) {
 }
 
 module.exports = {
+  signUpStart,
   signUpSuccess,
   signUpFailure,
   signInSuccess,

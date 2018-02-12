@@ -7,6 +7,14 @@ const store = require('./store')
 // EVENT HANDLERSSS!
 const addHandlers = () => {
   // Control panel/user stuff; scroll down for gameplay handlers
+
+// This clones the original/starting state of the sign up modal
+  const originalModal = $('#signUpInner').clone()
+  // This resets the sign up modal after someone opens and closes said modal
+  $('#signUpModal').on('hidden.bs.modal', function () {
+    $('#signUpModal').html(originalModal)
+  })
+
   $('#sign-up').on('submit', function (event) {
     event.preventDefault()
     const data = getFormFields(this)
@@ -15,6 +23,8 @@ const addHandlers = () => {
     api.signUp(data)
       .then(ui.signUpSuccess)
       .catch(ui.signUpFailure)
+    // $('#exampleModal').modal('toggle')
+    // return false
   })
   $('#sign-in').on('submit', function (event) {
     event.preventDefault()
@@ -68,7 +78,12 @@ const addHandlers = () => {
       .then(ui.signOutSuccess)
       .catch(ui.signOutFailure)
   })
-
+  $('#button').submit(function (e) {
+    e.preventDefault()
+    // Coding
+    $('#exampleModal').modal('toggle') // or  $('#IDModal').modal('hide');
+    return false
+  })
   // Game board handlers
   $('#first').on('click', function () { logic.fieldPickLogic('#first', 0) })
   $('#second').on('click', function () { logic.fieldPickLogic('#second', 1) })

@@ -2,22 +2,57 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-body {
-  color: red;
-  font-family: 'Slabo 27px', serif;
-  font-size: 14px;
-  margin: 0 auto;
-  max-width: 900px;
-}
+$red: #b20836;
+
+// body {
+//   color: red;
+//   font-family: 'Slabo 27px', serif;
+//   font-size: 14px;
+//   margin: 0 auto;
+//   max-width: 900px;
+// }
 
 /* .live-area {
   min-width: 50%;
   margin: auto;
 } */
 
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+header {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+  background-image: url('/assets/img/tic-tac-toe-bg-a.jpg');
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.failureMessage {
+  color: #c1263e;
+  font-size: 26px;
+}
+
+.successMessage {
+  color: #26c1b4;
+  font-size: 26px;
+}
+
+
 .game-field {
   background-color: yellow;
-  font-size: 30px;
+  font-size: 60px;
   border: 1px solid;
   float: left;
   width: 200px;
@@ -25,6 +60,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.bg-image-full {
+  background: no-repeat center center scroll;
+  background-size: cover;
 }
 
 .hidden {
@@ -59,6 +99,10 @@ body {
 }
 
 #create-game {
+  display: none;
+}
+
+#restart-game {
   display: none;
 }
 
