@@ -37,14 +37,21 @@ compare(picks[0], win[4]) === true || compare(picks[0], win[5]) === true ||
 compare(picks[0], win[6]) === true || compare(picks[0], win[7]) === true)) {
     store.game.over = true
     api.updateGameOver()
-    alert('X wins!')
+    $('#alert-modal').modal('toggle')
+    $('#alert-modal-message').text('X wins!')
   } else if ((store.game.over === false) && (compare(picks[1], win[0]) === true || compare(picks[1], win[1]) === true ||
 compare(picks[1], win[2]) === true || compare(picks[1], win[3]) === true ||
 compare(picks[1], win[4]) === true || compare(picks[1], win[5]) === true ||
 compare(picks[1], win[6]) === true || compare(picks[1], win[7]) === true)) {
     store.game.over = true
     api.updateGameOver()
-    alert('O wins!')
+    $('#alert-modal').modal('toggle')
+    $('#alert-modal-message').text('O wins!')
+  } else if (store.game.over === false && picks[0].length + picks[1].length === 9) {
+    store.game.over = true
+    api.updateGameOver()
+    $('#alert-modal').modal('toggle')
+    $('#alert-modal-message').text('Draw!')
   }
 }
 
@@ -62,18 +69,18 @@ const fieldPickLogic = function (fieldId, index) {
     $(fieldId).text('x')
     api.updateGameCell(index, 'x')
     currentTurn = 'o'
-    console.log(store.game)
   } else if (store.game.over === false && currentTurn === 'o' && store.game.cells[index] === '') {
     picks[1].push(index)
     store.game.cells[index] = 'o'
     $(fieldId).text('o')
     api.updateGameCell(index, 'o')
     currentTurn = 'x'
-    console.log(store.game)
   } else if (store.game.over === false && store.game.cells[index] !== '') {
-    alert('Pick another box plz!')
-  } else {
-    alert('This game is over, bro')
+    $('#alert-modal').modal('toggle')
+    $('#alert-modal-message').text('Pick another box plz!')
+  } else if (store.game.over === true) {
+    $('#alert-modal').modal('toggle')
+    $('#alert-modal-message').text('This game is over, bro')
   }
   checkWin()
   console.log(store.game.id)

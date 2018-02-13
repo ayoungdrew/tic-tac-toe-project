@@ -12,7 +12,7 @@
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
 <body>
-  <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+  <!-- <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
       </ul>
     </div>
   </div>
-</nav>
+</nav> -->
 
 <!--Nav ends here!!-->
 
@@ -94,14 +94,8 @@
       <button type="submit" class="btn btn-primary">Sign in</button>
     </form>
 
-
-    <!-- Button trigger modal -->
-    <button id="signUpButton" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal">
-      Sign up to play!
-    </button>
-
     <!-- Modal -->
-    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" id="signUpInner" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -130,7 +124,7 @@
                 </div>
               </div>
               </fieldset>
-              <div class="col-sm-12" id="signUpModalMessage"><h3></h3></div>
+              <div class="col-sm-12" id="sign-up-modalMessage"></div>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-primary">Register</button>
           </form>
@@ -141,41 +135,86 @@
 
     <form id="create-game" class="border">
       <fieldset>
-        <legend>Let's MAKE. A. GAME!</legend>
-        <input type="submit" value="Make a game!">
+        <button type="submit" class="btn btn-primary">
+          Start game
+        </button>
       </fieldset>
       <div class="spacer40"></div>
     </form>
+
+    <!-- Player profile modal Button-->
+    <form id="profile-button" >
+    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#player-profile">
+      Player profile
+    </button>
+    </form>
+    <!-- Player profile modal  -->
+    <div class="modal fade" id="player-profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" id="signUpInner" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Player profile</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="change-password" class="form-group">
+              <fieldset>
+                <div class="col-sm-12">
+                <label for="exampleInputPassword">Game History</label>
+                <div id="game-history-message"></div>
+                <div class="spacer20"></div>
+                </div>
+                <div id="signUpForms">
+                <div class="form-group col-sm-12">
+                  <label for="exampleInputPassword">Old Password</label>
+                  <input type="password" name="passwords[old]" class="form-control" placeholder="Enter old password">
+                </div>
+                <div class="form-group col-sm-12">
+                  <label for="exampleInputPassword">New Password</label>
+                  <input type="password" name="passwords[new]" class="form-control" placeholder="Enter new password">
+                </div>
+              </div>
+              </fieldset>
+              <div class="col-sm-12" id="change-password-message"></div>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Change password</button>
+          </form>
+              <!-- <input type="submit" value="Game history!"> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="alert-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" id="signUpInner" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">ALERT</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div id="alert-modal-message" class="modal-body">
+          </div>
+        </div>
+      </div>
+    </div>
+
     <form id="restart-game" class="border">
-      <fieldset>
-        <legend>Restart!</legend>
-        <input type="submit" value="Restart game!">
-      </fieldset>
-      <div class="spacer40"></div>
+        <button type="submit" class="btn btn-primary">
+          Restart game
+        </button>
+      <div class="spacer20"></div>
     </form>
-    <form id="get-all-games" class="border">
-      <fieldset>
-        <legend>See my game history!</legend>
-        <input type="submit" value="Game history!">
-      </fieldset>
-      <div class="spacer40"></div>
-    </form>
-    <form id="change-password" class="border">
-      <fieldset>
-        <legend>Change Password!</legend>
-        <input type="password" name="passwords[old]" placeholder="Old Password">
-        <input type="password" name="passwords[new]" placeholder="New Password">
-        <input type="submit" value="Change password!">
-      </fieldset>
-      <div class="spacer40"></div>
-    </form>
+    <div id="message"></div>
+          <div class="spacer20"></div>
     <form id="sign-out" class="border">
-      <fieldset>
-        <legend>I'm done! Let's GTFO!</legend>
-        <input type="submit" value="Sign out!">
-      </fieldset>
+        <button type="submit" class="btn btn-primary">
+          Sign out
+        </button>
     </form>
-    <div class="col-sm-6" id="message">test</div>
   </div>
 </div>
 </div>

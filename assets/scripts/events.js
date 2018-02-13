@@ -55,7 +55,15 @@ const addHandlers = () => {
     console.log(store.game)
   })
 
-  $('#get-all-games').on('submit', function (event) {
+  // $('#get-all-games').on('submit', function (event) {
+  //   event.preventDefault()
+  //   // console.log('My game history plzzzzzz')
+  //   api.getAllGames()
+  //     .then(ui.getAllGamesSuccess)
+  //     .catch(ui.getAllGamesFailure)
+  // })
+
+  $('#profile-button').on('submit', function (event) {
     event.preventDefault()
     // console.log('My game history plzzzzzz')
     api.getAllGames()
