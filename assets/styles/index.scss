@@ -4,39 +4,41 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 $red: #b20836;
 
-// body {
-//   color: red;
-//   font-family: 'Slabo 27px', serif;
-//   font-size: 14px;
-//   margin: 0 auto;
-//   max-width: 900px;
-// }
-
-/* .live-area {
-  min-width: 50%;
-  margin: auto;
-} */
-
 body,
 html {
+  font-family: 'Montserrat', sans-serif;
   height: 100%;
   width: 100%;
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Fredoka One', cursive;
+}
+
 header {
-  position: relative;
-  width: 100%;
-  min-height: auto;
-  height: 100%;
-  text-align: center;
-  color: #fff;
+  background-color: #000;
   background-image: url('/assets/img/tic-tac-toe-bg-a.jpg');
-  background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
+  position: relative;
+  height: 66%;
+  width: 100%;
+  min-height: 400px;
+  color: #fff;
+  text-align: center;
   background-size: cover;
-  -o-background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+header h1,
+header h3 {
+  margin-top: 5px;
 }
 
 .failureMessage {
@@ -51,52 +53,48 @@ header {
   margin-bottom: 10px;
 }
 
-// Flexbox stuffs
-.flex-grid {
+.game-field {
+  align-items: center;
+  background-color: #fff;
   display: flex;
-}
-
-.flex-grid .col {
-  flex: 1;
-  background: salmon;
-  padding: 20px;
-}
-
-.flex-grid-thirds {
-  display: flex;
-  justify-content: space-between;
-}
-
-.flex-grid-thirds .col {
+  float: left;
+  font-family: 'Fredoka One', cursive;
+  font-size: 120px;
+  height: 100%;
+  justify-content: center;
   width: 32%;
 }
 
-@media (max-width: 400px) {
-  .flex-grid,
-  .flex-grid-thirds {
-    display: block;
-
-    .col {
-      width: 100%;
-      margin: 0 0 10px 0;
-    }
-  }
+.game-board-row {
+  display: flex;
+  flex-direction: row;
+  height: 32%;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  // height: 25vh;
 }
 
-.game-field {
-  align-items: center;
-  // background-color: yellow;
-  border: 1px solid;
-  display: flex;
-  float: left;
-  font-size: 60px;
-  height: 20vh;
-  justify-content: center;
-  max-height: 200px;
-  // max-width: 100px;
-  min-height: 110px;
-  min-width: 100px;
-  width: 33%;
+.game-board-parent {
+  display: none; //CHANGE TO NONE BEFORE DEPLOYMENT
+  flex-direction: column;
+  height: 55vh;
+  background: #000;
+  margin: 0 auto;
+  max-width: 600px;
+  max-height: 600px;
+  min-height: 480px;
+  width: 100%;
+  min-width: 320px;
+  // background: #000;
+  // margin: 0 auto;
+  // padding: 0;
+  // max-width: 620px;
+  // min-width: 320px;
+  // width: 100%;
+  justify-content: space-between;
+  // // height: 25vh;
 }
 
 .bg-image-full {
@@ -120,43 +118,74 @@ header {
   height: 40px;
 }
 
-#game-board {
-  display: block; //CHANGE TO NONE BEFORE DEPLOYMENT
-  margin: 0 auto;
-  max-width: 600px;
-  min-width: 308px;
-  width: 100%;
-  // height: 25vh;
+.spacer80 {
+  height: 280px;
 }
 
-#profile-button {
+.spacer-variable {
+  height: 20vh;
+}
+
+.profile-button {
   display: none;
 }
 
-#fourth {
-  clear: left;
-}
-
-#seventh {
-  clear: left;
-}
-
-#change-password {
+.greeting-text {
   display: none;
 }
 
-#create-game {
+.create-game {
   display: none;
 }
 
-#restart-game {
+.game-hud {
+  display: none;
+  font-family: 'Fredoka One', cursive;
+  font-size: 40px;
+  margin-top: 50px;
+  text-align: right;
+}
+
+.restart-game {
   display: none;
 }
 
-#get-all-games {
+.get-all-games {
   display: none;
 }
 
-#sign-out {
+.sign-out {
   display: none;
+}
+
+@media screen and (min-width: 720px) {
+  h1 {
+    font-size: 58px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .game-field {
+    width: 31%;
+  }
+
+  header {
+    height: 80%;
+    justify-content: flex-start;
+  }
+
+  .spacer-variable {
+    height: 2vh;
+  }
+}
+
+@media screen and (max-height: 740px) {
+  .game-board-row {
+    height: 31.5%;
+  }
+
+  .game-hud {
+    font-size: 30px;
+    margin-top: 20px;
+  }
 }

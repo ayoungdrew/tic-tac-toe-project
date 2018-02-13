@@ -24,12 +24,24 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccess = function (data) {
-  $('#change-password, #create-game, #get-all-games, #sign-out, #profile-button').css({
-    'display': 'block'
-  })
+  $('#greeting-text, #create-game, #sign-out, #profile-button')
+    // .css({
+    //   'display': 'block'
+    // })
+    .fadeIn('slow')
   $('#sign-in, #sign-up-button').css({
     'display': 'none'
   })
+  $('header').css({
+    'min-height': '0px'
+  })
+    .animate({
+      opacity: 0.1,
+      up: '+=100',
+      height: 'toggle'
+    }, 1000, function () {
+    // Animation complete.
+    })
   store.user = data.user
   console.log('AJAX data returned:', data)
   console.log(store.user)
@@ -52,17 +64,14 @@ const changePasswordFailure = function (error) {
 }
 
 const createGameSuccess = function (data) {
-  $('#restart-game').css({
+  $('#restart-game, #game-hud').css({
     'display': 'block'
   })
-  $('#game-board').css({
-    'display': 'none'
-  }).animate({
-    opacity: 0.5,
-    height: 'toggle'
-  }, 1000)
-  $('.game-field').fadeIn('slow')
-  $('#create-game').css({
+  $('.game-board-parent')
+    .css('display', 'flex')
+    .hide()
+    .fadeIn()
+  $('#create-game, #greeting-text').css({
     'display': 'none'
   })
   store.game = data.game
@@ -123,12 +132,23 @@ const getAllGamesFailure = function (error) {
 }
 
 const signOutSuccess = function (data) {
-  $('#game-board, #change-password, #create-game, #sign-out').css({
-    'display': 'none'
-  })
-  $('#sign-in, #sign-up').css({
-    'display': 'block'
-  })
+  $('.game-board-parent, #greeting-text, #game-hud, #profile-button, #create-game, #restart-game, #sign-out')
+    .css({
+      'display': 'none'
+    })
+  $('#sign-in, #sign-up-button')
+    // .css({
+    //   'display': 'block'
+    // })
+    .fadeIn('slow')
+  $('header')
+    .animate({
+      opacity: 1.0,
+      up: '+=100',
+      height: 'toggle'
+    }, 1000, function () {
+    // Animation complete.
+    })
   console.log(data)
   console.log(store.user)
 }

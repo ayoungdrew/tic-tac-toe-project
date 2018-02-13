@@ -10,14 +10,22 @@ const addHandlers = () => {
   const originalModal = $('#sign-up-inner').clone()
   // This resets the sign up modal after someone opens and closes said modal
   $('#sign-up-modal').on('hidden.bs.modal', function () {
-    $('#sign-up-modal').html(originalModal)
+    const myClone = originalModal.clone()
+    $(this).html(myClone)
+    // re-assign sign-up event listener
+    $('#sign-up').on('submit', function (event) {
+      event.preventDefault()
+      const data = getFormFields(this)
+      api.signUp(data)
+        .then(ui.signUpSuccess)
+        .catch(ui.signUpFailure)
+    })
   })
 
   $('#sign-up').on('submit', function (event) {
     event.preventDefault()
     const data = getFormFields(this)
     console.log('hello sign me up???')
-    console.log(data)
     api.signUp(data)
       .then(ui.signUpSuccess)
       .catch(ui.signUpFailure)
@@ -30,11 +38,12 @@ const addHandlers = () => {
     api.signIn(data)
       .then(ui.signInSuccess)
       .catch(ui.signInFailure)
+    $(this).closest('form').find('input[type=password], textarea').val('')
   })
 
   $('#create-game').on('submit', function (event) {
     event.preventDefault()
-    $('.game-field').text('')
+    $('#game-hud').text(`Current turn: X`)
     console.log('Making a new game...')
     api.createGame()
       .then(ui.createGameSuccess)
@@ -44,7 +53,6 @@ const addHandlers = () => {
 
   $('#restart-game').on('submit', function (event) {
     event.preventDefault()
-    $('.game-field').text('')
     console.log('Restarting game...')
     api.createGame()
       .then(ui.restartGameSuccess)

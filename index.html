@@ -6,38 +6,13 @@
 
   <!-- Do not add `link` tags-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Slabo+13px|Slabo+27px" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One|Montserrat" rel="stylesheet">
   <!-- Do not add `script` tags-->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
 <body>
-  <!-- <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-  <div class="container">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#portfolio">Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contactsection">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav> -->
 
-<!--Nav ends here!!-->
 
 <!-- <section class="py-5 bg-image-full" style="background-image: url('https://unsplash.it/1900/1080?image=1081');">
    testtt
@@ -47,64 +22,83 @@
 
 <!-- <header>tes</header> -->
 
-<!-- <header>
-  <div class="header-content">
+<header>
+  <div class="header-content align-bottom">
     <div class="header-content-inner">
-      <h1 style="font-size: 65px;">Hey Look, It's Every Bootstrap Website Ever</h1>
-      <hr>
-      <p>Take a look around at the same fucking bootstrap page you've seen ten million times before! Featuring all the same things as those pages!</p>
-      <a href="#about" class="btn btn-primary btn-xl page-scroll">This button makes the page scroll</a>
-    </div>
+      <div class="spacer-variable"></div>
+<div class="container">
+  <div class="col-md-12 align-middle">
+  <div class="col-md-4 align-middle" style="display: flex; flex-direction: column;">
+    <h1 style="text-align: right;">Tic Tac Toe</h1>
+    <h3 style="text-align: right;">A Brief Introduction</h3>
   </div>
-</header> -->
+  <div class="col-md-8 text-left">
+<p>Tic-tac-toe is a paper-and-pencil game for two players, X and O,
+  who take turns marking the spaces in a 3×3 grid. The player who succeeds in
+  placing three of their marks in a horizontal, vertical, or diagonal row wins
+  the game. Players soon discover that best play from both parties leads to a
+  draw. Hence, tic-tac-toe is most often played by young children.</p>
+<p>
+Because of the simplicity of tic-tac-toe, it is often used as a pedagogical tool
+for teaching the concepts of good sportsmanship and the branch of artificial
+intelligence that deals with the searching of game trees.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</header>
 
 
   <div class="container">
-  <h1>Tic Tac Toe</h1>
-  <p>Tic-tac-toe is a paper-and-pencil game for two players, X and O,
-    who take turns marking the spaces in a 3×3 grid. The player who succeeds in
-    placing three of their marks in a horizontal, vertical, or diagonal row wins
-    the game.</p>
-  <div id="live-area">
-    <div id="game-board">
+    <div class="spacer40"></div>
+
+    <div class="game-board-parent">
+    <div class="game-board-row">
       <div id="first" class="game-field"></div>
       <div id="second" class="game-field"></div>
       <div id="third" class="game-field"></div>
+    </div>
+          <div class="game-board-row">
       <div id="fourth" class="game-field"></div>
       <div id="fifth" class="game-field"></div>
       <div id="sixth" class="game-field"></div>
+    </div>
+          <div class="game-board-row">
       <div id="seventh" class="game-field"></div>
       <div id="eighth" class="game-field"></div>
       <div id="ninth" class="game-field"></div>
     </div>
-
-<div class="flex-grid" style="clear: left;">
-  <div class="col">hello</div>
-  <div class="col"></div>
-  <div class="col"></div>
 </div>
 
 
+    <!-- <div id="control-panel" style="clear: left;"> -->
 
-    <div id="control-panel" style="clear: left;">
-    <h2>Let's Play!</h2>
-
-    <form id="sign-in">
-      <div class="form-group">
+    <form id="sign-in" class="col-md-6">
+      <h2>Let's Play!</h2>
+      <div class="form-group" style="padding-left: 0px;">
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
       </div>
-      <div class="form-group">
+      <div class="form-group" style="padding-left: 0px;">
         <label for="exampleInputPassword1">Password</label>
         <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
       </div>
       <button type="submit" class="btn btn-primary">Sign in</button>
+          <div style="float: right;" id="message"></div>
     </form>
 
 
     <!-- Sign up modal Button-->
-    <form>
-      <button id="sign-up-button" type="button" class="btn btn-primary spacer20" data-toggle="modal" data-target="#sign-up-modal">
+    <form class="col-md-6" id="sign-up-button">
+      <h2>Not Registered?</h2>
+      <p>If it smells like fish eat as much as you wish lick human with
+        sandpaper tongue, be a nyan cat, feel great about it, be annoying
+        24/7 poop rainbows in litter box all day. If human is on laptop sit on
+        the keyboard cat fur is the new black but small kitty warm kitty little
+        balls of fur for flop over missing until dinner time.</p>
+      <button type="button" class="btn btn-primary spacer20" data-toggle="modal" data-target="#sign-up-modal">
       Sign up
     </button>
     </form>
@@ -120,8 +114,8 @@
           </div>
           <div class="modal-body">
             <form id="sign-up" class="form-group">
-              <fieldset>
-                <div id="signUpForms">
+              <fieldset id="signUpForms">
+                <div>
                 <div class="form-group col-sm-12">
                   <label for="exampleInputEmail1">Email address</label>
                   <input type="email" name="credentials[email]" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
@@ -146,7 +140,16 @@
       </div>
     </div>
 
-    <form id="create-game" class="border spacer20">
+    <div class="col-md-6 greeting-text" id="greeting-text">
+      <h2>Shall We Begin?</h2>
+      <p>You can also click this shnazzy player profile button to see your game
+        history and change your password. This is also a second sentence to
+      fill up more space.</p>
+  </div>
+  <div class="col-md-6 game-hud" id="game-hud">
+  </div>
+  <div class="col-md-6">
+    <form id="create-game" class="border spacer20 create-game">
       <fieldset>
         <button type="submit" class="btn btn-primary">
           Start game
@@ -155,7 +158,7 @@
     </form>
 
     <!-- Player profile modal Button-->
-    <form id="profile-button" >
+    <form id="profile-button" class="profile-button">
     <button type="submit" class="btn btn-primary spacer20" data-toggle="modal" data-target="#player-profile">
       Player profile
     </button>
@@ -208,36 +211,25 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div id="alert-modal-message" class="modal-body">
+          <div id="alert-modal-message" class="modal-body" style="font-size: 30px;">
           </div>
         </div>
       </div>
     </div>
 
-    <form id="restart-game" class="border">
+    <form id="restart-game" class="border restart-game">
         <button type="submit" class="btn btn-primary spacer20">
           Restart game
         </button>
     </form>
-    <div id="message"></div>
-    <form id="sign-out" class="border">
+    <form id="sign-out" class="border sign-out">
         <button type="submit" class="btn btn-primary spacer20">
           Sign out
         </button>
     </form>
   </div>
+  <!-- </div> -->
 </div>
-</div>
-
-<!-- <h1>Example</h1>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-est laborum.</p> -->
 </body>
 
 </html>

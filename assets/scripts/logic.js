@@ -39,6 +39,7 @@ compare(picks[0], win[6]) === true || compare(picks[0], win[7]) === true)) {
     api.updateGameOver()
     $('#alert-modal').modal('toggle')
     $('#alert-modal-message').text('X wins!')
+    $('#game-hud').text(`Game Over: X wins!`)
   } else if ((store.game.over === false) && (compare(picks[1], win[0]) === true || compare(picks[1], win[1]) === true ||
 compare(picks[1], win[2]) === true || compare(picks[1], win[3]) === true ||
 compare(picks[1], win[4]) === true || compare(picks[1], win[5]) === true ||
@@ -47,11 +48,13 @@ compare(picks[1], win[6]) === true || compare(picks[1], win[7]) === true)) {
     api.updateGameOver()
     $('#alert-modal').modal('toggle')
     $('#alert-modal-message').text('O wins!')
+    $('#game-hud').text(`Game Over: O wins!`)
   } else if (store.game.over === false && picks[0].length + picks[1].length === 9) {
     store.game.over = true
     api.updateGameOver()
     $('#alert-modal').modal('toggle')
     $('#alert-modal-message').text('Draw!')
+    $('#game-hud').text(`Game Over: Draw`)
   }
 }
 
@@ -60,6 +63,8 @@ const gameBoardReset = () => {
   store.game.cells = ['', '', '', '', '', '', '', '', '']
   picks = [[], []]
   currentTurn = 'x'
+  $('.game-field').text('')
+  $('#game-hud').text(`Current turn: X`)
 }
 
 const fieldPickLogic = function (fieldId, index) {
@@ -69,12 +74,14 @@ const fieldPickLogic = function (fieldId, index) {
     $(fieldId).text('x')
     api.updateGameCell(index, 'x')
     currentTurn = 'o'
+    $('#game-hud').text(`Current turn: O`)
   } else if (store.game.over === false && currentTurn === 'o' && store.game.cells[index] === '') {
     picks[1].push(index)
     store.game.cells[index] = 'o'
     $(fieldId).text('o')
     api.updateGameCell(index, 'o')
     currentTurn = 'x'
+    $('#game-hud').text(`Current turn: X`)
   } else if (store.game.over === false && store.game.cells[index] !== '') {
     $('#alert-modal').modal('toggle')
     $('#alert-modal-message').text('Pick another box plz!')
