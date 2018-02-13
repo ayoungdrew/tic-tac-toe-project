@@ -7,9 +7,7 @@ const store = require('./store')
 // EVENT HANDLERSSS!
 const addHandlers = () => {
   // Control panel/user stuff; scroll down for gameplay handlers
-
-// This clones the original/starting state of the sign up modal
-  const originalModal = $('#signUpInner').clone()
+  const originalModal = $('#sign-up-inner').clone()
   // This resets the sign up modal after someone opens and closes said modal
   $('#sign-up-modal').on('hidden.bs.modal', function () {
     $('#sign-up-modal').html(originalModal)
@@ -23,8 +21,6 @@ const addHandlers = () => {
     api.signUp(data)
       .then(ui.signUpSuccess)
       .catch(ui.signUpFailure)
-    // $('#exampleModal').modal('toggle')
-    // return false
   })
   $('#sign-in').on('submit', function (event) {
     event.preventDefault()
@@ -38,10 +34,12 @@ const addHandlers = () => {
 
   $('#create-game').on('submit', function (event) {
     event.preventDefault()
+    $('.game-field').text('')
     console.log('Making a new game...')
     api.createGame()
       .then(ui.createGameSuccess)
       .catch(ui.createGameFailure)
+    logic.gameBoardReset()
   })
 
   $('#restart-game').on('submit', function (event) {

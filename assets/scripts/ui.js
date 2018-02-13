@@ -36,7 +36,7 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function (error) {
-  $('#message').html('Sign up failure. Try again plz').addClass('failureMessage')
+  $('#message').html('Sign in failure. Try again plz').addClass('failureMessage')
   console.error(error)
 }
 
