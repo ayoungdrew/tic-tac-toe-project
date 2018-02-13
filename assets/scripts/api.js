@@ -2,7 +2,7 @@ const store = require('./store')
 
 const signUp = function (data) { // this is the POST verb
   return $.ajax({
-    url: 'http://tic-tac-toe.wdibos.com/sign-up',
+    url: 'https://aqueous-atoll-85096.herokuapp.com/sign-up',
     method: 'POST',
     headers: {
       contentType: 'application/json'
@@ -13,7 +13,7 @@ const signUp = function (data) { // this is the POST verb
 
 const signIn = function (data) { // this is the POST verb
   return $.ajax({
-    url: 'http://tic-tac-toe.wdibos.com/sign-in',
+    url: 'https://aqueous-atoll-85096.herokuapp.com/sign-in',
     method: 'POST',
     headers: {
       contentType: 'application/json'
@@ -24,7 +24,7 @@ const signIn = function (data) { // this is the POST verb
 
 const createGame = function () { // this is the POST verb
   return $.ajax({
-    url: 'http://tic-tac-toe.wdibos.com/games/',
+    url: 'https://aqueous-atoll-85096.herokuapp.com/games/',
     method: 'POST',
     headers: {
       contentType: 'application/json',
@@ -35,7 +35,7 @@ const createGame = function () { // this is the POST verb
 
 const updateGameCell = function (cellIndex, playerAvatar) {
   return $.ajax({
-    url: `http://tic-tac-toe.wdibos.com/games/${store.game.id}`,
+    url: `https://aqueous-atoll-85096.herokuapp.com/games/${store.game.id}`,
     method: 'PATCH',
     headers: {
       contentType: 'application/json',
@@ -54,7 +54,7 @@ const updateGameCell = function (cellIndex, playerAvatar) {
 
 const updateGameOver = function () {
   return $.ajax({
-    url: 'http://tic-tac-toe.wdibos.com/games/' + store.game.id,
+    url: 'https://aqueous-atoll-85096.herokuapp.com/games/' + store.game.id,
     method: 'PATCH',
     headers: {
       contentType: 'application/json',
@@ -70,7 +70,7 @@ const updateGameOver = function () {
 
 const getAllGames = function () {
   return $.ajax({
-    url: 'http://tic-tac-toe.wdibos.com/games/',
+    url: 'https://aqueous-atoll-85096.herokuapp.com/games/',
     method: 'GET',
     headers: {
       contentType: 'application/json',
@@ -81,7 +81,7 @@ const getAllGames = function () {
 
 const getGame = function () {
   return $.ajax({
-    url: 'http://tic-tac-toe.wdibos.com/games/' + store.game.id,
+    url: 'https://aqueous-atoll-85096.herokuapp.com/games/' + store.game.id,
     method: 'GET',
     headers: {
       contentType: 'application/json',
@@ -92,7 +92,7 @@ const getGame = function () {
 
 const changePassword = function (data) { // this is the POST verb
   return $.ajax({
-    url: 'http://tic-tac-toe.wdibos.com/change-password/' + store.user.id,
+    url: 'https://aqueous-atoll-85096.herokuapp.com/change-password/' + store.user.id,
     method: 'PATCH',
     headers: {
       contentType: 'application/json',
@@ -104,7 +104,7 @@ const changePassword = function (data) { // this is the POST verb
 
 const signOut = function (data) { // this is the POST verb
   return $.ajax({
-    url: 'http://tic-tac-toe.wdibos.com/sign-out/' + store.user.id,
+    url: 'https://aqueous-atoll-85096.herokuapp.com/sign-out/' + store.user.id,
     method: 'DELETE',
     headers: {
       contentType: 'application/json',
