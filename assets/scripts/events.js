@@ -11,8 +11,8 @@ const addHandlers = () => {
 // This clones the original/starting state of the sign up modal
   const originalModal = $('#signUpInner').clone()
   // This resets the sign up modal after someone opens and closes said modal
-  $('#signUpModal').on('hidden.bs.modal', function () {
-    $('#signUpModal').html(originalModal)
+  $('#sign-up-modal').on('hidden.bs.modal', function () {
+    $('#sign-up-modal').html(originalModal)
   })
 
   $('#sign-up').on('submit', function (event) {
@@ -88,7 +88,6 @@ const addHandlers = () => {
   })
   $('#button').submit(function (e) {
     e.preventDefault()
-    // Coding
     $('#exampleModal').modal('toggle') // or  $('#IDModal').modal('hide');
     return false
   })

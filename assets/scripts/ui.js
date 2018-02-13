@@ -10,8 +10,8 @@ const signUpStart = function (data) {
 }
 
 const signUpSuccess = function (data) {
-  $('#signUpModalMessage').html('Signed up succesfully').addClass('successMessage')
-  $('#signUpForms, #signUpSubmit').css({
+  $('#sign-up-modal-message').html('Signed up succesfully').addClass('successMessage')
+  $('#signUpForms, #signUpSubmit, #register-button').css({
     'display': 'none'
   })
   // $('#signUpModal').modal('toggle')
@@ -19,7 +19,7 @@ const signUpSuccess = function (data) {
 }
 
 const signUpFailure = function (error) {
-  $('#signUpModalMessage').html('Sign up failure. Try again plz').addClass('failureMessage')
+  $('#sign-up-modal-message').html('Sign up failure. Try again plz').addClass('failureMessage')
   console.error(error)
 }
 
