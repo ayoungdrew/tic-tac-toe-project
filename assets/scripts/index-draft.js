@@ -12,10 +12,10 @@ $(() => {
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
-let gameBoard = [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined]
+const gameBoard = [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined]
 const xPicks = []
 const oPicks = []
-const currentTurn
+const currentTurn = ''
 
 // $(() => {
 //   $(document).on('click', function () {
@@ -75,7 +75,7 @@ const compare = function (playerPoints, winArray) {
   return resultArr.length === 3
 }
 
-let checkWin = function () {
+const checkWin = function () {
   if (compare(picks[0], win[0]) === true || compare(picks[0], win[1]) === true ||
 compare(picks[0], win[2]) === true || compare(picks[0], win[3]) === true ||
 compare(picks[0], win[4]) === true || compare(picks[0], win[5]) === true ||
@@ -87,4 +87,12 @@ compare(picks[1], win[4]) === true || compare(picks[1], win[5]) === true ||
 compare(picks[1], win[6]) === true || compare(picks[1], win[7]) === true) {
     console.log('O wins!')
   }
+}
+
+module.exports = {
+  gameBoard,
+  xPicks,
+  oPicks,
+  currentTurn,
+  checkWin
 }
