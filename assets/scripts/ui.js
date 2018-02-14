@@ -48,18 +48,18 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function (error) {
-  $('#message').html('Sign in failure. Try again plz').addClass('failureMessage')
+  $('#message').html('Sign in failure. Try again plz').attr('class', 'failureMessage')
   console.error(error)
 }
 
 const changePasswordSuccess = function (data) {
-  $('#change-password-message').html('Successfully changed password').addClass('successMessage')
+  $('#change-password-message').html('Successfully changed password').attr('class', 'successMessage')
   console.log(data)
   console.log(store.user)
 }
 
 const changePasswordFailure = function (error) {
-  $('#change-password-message').html('Failed to change password. Try again plz').addClass('failureMessage')
+  $('#change-password-message').html('Failed to change password. Try again plz').attr('class', 'failureMessage')
   console.error(error)
 }
 

@@ -72,6 +72,7 @@ const addHandlers = () => {
   $('#profile-button').on('submit', function (event) {
     event.preventDefault()
     // console.log('My game history plzzzzzz')
+    $('#change-password-message').text('')
     api.getAllGames()
       .then(ui.getAllGamesSuccess)
       .catch(ui.getAllGamesFailure)
@@ -84,7 +85,9 @@ const addHandlers = () => {
     api.changePassword(data)
       .then(ui.changePasswordSuccess)
       .catch(ui.changePasswordFailure)
+    $(this).closest('form').find('input[type=password], textarea').val('')
   })
+
   $('#sign-out').on('submit', function (event) {
     event.preventDefault()
     console.log('I want to sign out plz')

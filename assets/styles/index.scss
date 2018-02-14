@@ -41,6 +41,20 @@ header h3 {
   margin-top: 5px;
 }
 
+.btn {
+  border-radius: 0;
+}
+
+.btn.outline {
+  background: none;
+  padding: 12px 22px;
+}
+
+.btn-primary.outline {
+  border: 2px solid #0099cc;
+  color: #0099cc;
+}
+
 .failureMessage {
   color: #c1263e;
   font-size: 16px;
