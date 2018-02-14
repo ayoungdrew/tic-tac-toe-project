@@ -117,7 +117,7 @@ const getAllGamesSuccess = function (data) {
     }
     winRate = Math.round((xWins.length / gamesOver.length) * 100) + '%'
   }
-  $('#game-history-message').html(`You've won ${xWins.length} out of ${gamesOver.length} games. <br>
+  $('#game-history-message').html(`<h4>Game History</h4>You've won ${xWins.length} out of ${gamesOver.length} games. <br>
   Your win rate: ${winRate}`)
 }
 
