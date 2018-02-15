@@ -109,11 +109,9 @@ const getAllGamesSuccess = function (data) {
   const xWins = []
   let winRate
   console.log('Games you\'ve completed:', gamesOver)
-  // console.log('Finished ', gamesOver.length, 'games')
   for (let i = 0; i < gamesOver.length; i++) {
     for (let j = 0; j < logic.win.length; j++) {
       logic.checkWinRedux(gamesOver[i].cells, logic.win[j], xWins)
-      // xWins.push(gamesOver[i])x
     }
     winRate = Math.round((xWins.length / gamesOver.length) * 100) + '%'
   }
