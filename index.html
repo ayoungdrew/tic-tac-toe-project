@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tic Tac Toe</title>
+  <meta property="og:title" content="Tic-Tac-Toe" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ayoungdrew.github.io/tic-tac-toe-project/" />
+<meta property="og:image" content="https://i.imgur.com/FH87urE.jpg" />
+<meta property="og:description" content="Tic-Tac-Toe webapp" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One|Montserrat" rel="stylesheet">
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+<body>
+
+
+<!-- <section class="py-5 bg-image-full" style="background-image: url('https://unsplash.it/1900/1080?image=1081');">
+   testtt
+  <div style="height: 300px;"></div>
+</section> -->
+<!--Header Image Ends Here-->
+
+<!-- <header>tes</header> -->
+
+<header>
+  <div class="header-content align-bottom">
+    <div class="header-content-inner">
+      <div class="spacer-variable"></div>
+<div class="container">
+  <div class="col-md-12 align-middle">
+  <div class="col-md-4 align-middle" style="display: flex; flex-direction: column;">
+    <h1 style="text-align: right;">Tic Tac Toe</h1>
+    <h3 style="text-align: right;">A Brief Introduction</h3>
+  </div>
+  <div class="col-md-8 text-left">
+<p>Tic-tac-toe is a paper-and-pencil game for two players, X and O,
+  who take turns marking the spaces in a 3×3 grid. The player who succeeds in
+  placing three of their marks in a horizontal, vertical, or diagonal row wins
+  the game. Players soon discover that best play from both parties leads to a
+  draw. Hence, tic-tac-toe is most often played by young children.</p>
+<p>
+Because of the simplicity of tic-tac-toe, it is often used as a pedagogical tool
+for teaching the concepts of good sportsmanship and the branch of artificial
+intelligence that deals with the searching of game trees.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</header>
+
+
+  <div class="container">
+    <div class="spacer40"></div>
+
+    <div class="game-board-parent">
+    <div class="game-board-row">
+      <div id="first" class="game-field"></div>
+      <div id="second" class="game-field"></div>
+      <div id="third" class="game-field"></div>
+    </div>
+          <div class="game-board-row">
+      <div id="fourth" class="game-field"></div>
+      <div id="fifth" class="game-field"></div>
+      <div id="sixth" class="game-field"></div>
+    </div>
+          <div class="game-board-row">
+      <div id="seventh" class="game-field"></div>
+      <div id="eighth" class="game-field"></div>
+      <div id="ninth" class="game-field"></div>
+    </div>
+</div>
+
+    <form id="sign-in" class="col-md-6">
+      <h2>Let's Play!</h2>
+      <div class="form-group" style="padding-left: 0px;">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      </div>
+      <div class="form-group" style="padding-left: 0px;">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary">Sign in</button>
+          <div style="float: right;" id="message"></div>
+    </form>
+
+
+    <!-- Sign up modal Button-->
+    <form class="col-md-6" id="sign-up-button">
+      <h2>Not Registered?</h2>
+      <p>If it smells like fish eat as much as you wish lick human with
+        sandpaper tongue, be a nyan cat, feel great about it, be annoying
+        24/7 poop rainbows in litter box all day. If human is on laptop sit on
+        the keyboard cat fur is the new black but small kitty warm kitty little
+        balls of fur for flop over missing until dinner time.</p>
+      <button type="button" class="btn btn-primary spacer20" data-toggle="modal" data-target="#sign-up-modal">
+      Sign up
+    </button>
+    </form>
+    <!-- Sign Up Modal -->
+    <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" id="sign-up-inner" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="sign-up" class="form-group">
+              <fieldset id="signUpForms">
+                <div>
+                <div class="form-group col-sm-12">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" name="credentials[email]" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                  <small class="form-text text-muted">We'll also send you newsletters and a bunch of tic-tac-toe related spam roflmao fml</small>
+                </div>
+                <div class="form-group col-sm-6">
+                  <label for="exampleInputPassword">Password</label>
+                  <input type="password" name="credentials[password]" class="form-control" aria-describedby="emailHelp" placeholder="Enter password">
+                </div>
+                <div class="form-group col-sm-6">
+                  <label for="exampleInputPassword">Password Confirmation</label>
+                  <input type="password" name="credentials[password_confirmation]" class="form-control" aria-describedby="emailHelp" placeholder="Enter password">
+                </div>
+              </div>
+              </fieldset>
+              <div class="col-sm-12" id="sign-up-modal-message"></div>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button id="register-button" type="submit" class="btn btn-primary">Register</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 greeting-text" id="greeting-text">
+      <h2>Shall We Begin?</h2>
+      <p>You can also click this shnazzy player profile button to see your game
+        history and change your password. This is also a second sentence to
+      fill up just a bit more space.</p>
+  </div>
+  <div class="col-md-6 game-hud" id="game-hud">
+  </div>
+  <div class="col-md-6">
+    <form id="create-game" class="border spacer20 create-game">
+      <fieldset>
+        <button type="submit" class="btn btn-primary">
+          Start game
+        </button>
+      </fieldset>
+    </form>
+
+    <form id="restart-game" class="border restart-game">
+        <button type="submit" class="btn btn-primary spacer20">
+          Restart game
+        </button>
+    </form>
+
+    <!-- Player profile modal Button-->
+    <form id="profile-button" class="profile-button">
+    <button type="submit" class="btn btn-primary spacer20" data-toggle="modal" data-target="#player-profile">
+      Player profile
+    </button>
+    </form>
+    <!-- Player profile modal  -->
+    <div class="modal fade" id="player-profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Player profile</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="change-password" class="form-group">
+              <fieldset>
+                <div class="col-sm-12">
+                <div id="game-history-message"></div>
+                <div class="spacer20"></div>
+                </div>
+                <div>
+                <div class="form-group col-sm-12">
+                  <label for="exampleInputPassword">Old Password</label>
+                  <input type="password" name="passwords[old]" class="form-control" placeholder="Enter old password">
+                </div>
+                <div class="form-group col-sm-12">
+                  <label for="exampleInputPassword">New Password</label>
+                  <input type="password" name="passwords[new]" class="form-control" placeholder="Enter new password">
+                </div>
+              </div>
+              </fieldset>
+              <div id="change-password-message"></div>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Change password</button>
+          </form>
+              <!-- <input type="submit" value="Game history!"> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="alert-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">ALERT</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div id="alert-modal-message" class="modal-body" style="font-size: 30px;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form id="sign-out" class="border sign-out">
+        <button type="submit" class="btn btn-primary spacer20">
+          Sign out
+        </button>
+    </form>
+  </div>
+</div>
+</body>
+
+</html>
